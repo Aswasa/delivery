@@ -28,7 +28,7 @@ fn main() {
 	let package = &package.targets[0].name;
 	let target = metadata.target_directory;
 
-	eprintln!("Packaging for NPM.");
+	ferrisprint!("Packaging for NPM.");
 
 	const TARGETS: [&'static str; 2] = [
 		"x86_64-unknown-linux-gnu",
@@ -42,7 +42,7 @@ fn main() {
 		status.success().then_some(()).unwrap();
 	});
 
-	eprintln!("Hot diggity, it compiled.\nTime to through it into an npm package.");
+	ferrisprint!("Hot diggity, it compiled.\nTime to through it into an npm package.");
 	let tmp = TempDir::new("delivery").unwrap();
 	let tmp_path = tmp.path().to_owned();
 
@@ -83,7 +83,7 @@ fn zip_dir(zip_file: &Path, src_dir: &Path) -> ZipResult<()> {
 			File::open(path).unwrap().read_to_end(&mut buffer).unwrap();
 			zip.write_all(&*buffer).unwrap();
 		} else {
-			eprintln!("opening dir {:?}", path);
+			ferrisprint!("opening dir {:?}", path);
 			zip.add_directory(name.to_str().unwrap(), file_opts)?;
 		}
 		Ok(())
