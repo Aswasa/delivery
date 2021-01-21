@@ -1,4 +1,5 @@
 #![feature(bool_to_option)]
+#[macro_use]
 extern crate ferris_print;
 use cargo_metadata::MetadataCommand;
 use serde::Serialize;
