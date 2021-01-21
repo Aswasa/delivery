@@ -1,5 +1,5 @@
 #![feature(bool_to_option)]
-
+extern crate ferris_print;
 use cargo_metadata::MetadataCommand;
 use serde::Serialize;
 use serde_json::to_string;
